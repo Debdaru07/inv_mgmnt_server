@@ -10,11 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getExpensesByCategory = void 0;
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const __1 = require("..");
 const getExpensesByCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const expenseByCategorySummaryRaw = yield prisma.expenseByCategory.findMany({
+        const expenseByCategorySummaryRaw = yield __1.prisma.expenseByCategory.findMany({
             orderBy: {
                 date: "desc",
             },

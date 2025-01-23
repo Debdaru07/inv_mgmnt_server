@@ -10,35 +10,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDashboardMetrics = void 0;
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
-const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const __1 = require("..");
+const getDashboardMetrics = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const popularProducts = yield prisma.products.findMany({
-            take: 15,
+        const popularProducts = yield __1.prisma.products.findMany({
+            take: 40,
             orderBy: {
                 stockQuantity: "desc",
             }
         });
-        const salesSummary = yield prisma.salesSummary.findMany({
+        const salesSummary = yield __1.prisma.salesSummary.findMany({
             take: 5,
             orderBy: {
                 date: "desc"
             }
         });
-        const purchaseSummary = yield prisma.purchaseSummary.findMany({
+        const purchaseSummary = yield __1.prisma.purchaseSummary.findMany({
             take: 5,
             orderBy: {
                 date: "desc"
             }
         });
-        const expenseSummary = yield prisma.expenseSummary.findMany({
+        const expenseSummary = yield __1.prisma.expenseSummary.findMany({
             take: 5,
             orderBy: {
                 date: "desc"
             }
         });
-        const expenseByCategorySummaryRaw = yield prisma.expenseByCategory.findMany({
+        const expenseByCategorySummaryRaw = yield __1.prisma.expenseByCategory.findMany({
             take: 5,
             orderBy: {
                 date: "desc"

@@ -8,6 +8,9 @@ import dashboardRoutes from "./routes/dashboardRoutes";
 import productRoutes from "./routes/productRoutes";
 import userRoutes from "./routes/userRoutes";
 import expenseRoutes from "./routes/expenseRoutes";
+import { PrismaClient } from "@prisma/client";
+
+export const prisma = new PrismaClient();
 
 /* ROUTE IMPORTS */
 
